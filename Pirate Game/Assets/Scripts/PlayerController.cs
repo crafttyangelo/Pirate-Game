@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 direction = Vector2.zero;
     private Rigidbody2D rb;
+    public float speed = 5;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,10 +44,18 @@ public class PlayerController : MonoBehaviour
         {
             direction.y = 0;
         }
+
+        direction = direction.normalized;
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawLine(Vector3.zero, (Vector3)direction);
+    }
+
+    private void FixedUpdate()
+    {
+        // Move Player
+        rb.MovePosition(rb.position + (direction * speed * Time.fixedDeltaTime));
     }
 }
