@@ -4,7 +4,7 @@ public class CannonSpawner : MonoBehaviour
 {
 
     public Camera cam;
-    public GameObject bullet;
+    public GameObject cannon;
     private float spawn_timer = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +21,7 @@ public class CannonSpawner : MonoBehaviour
 
     private void SpawnCannon()
     {
-        GameObject new_cannon = Instantiate(Cannon);
+        GameObject new_cannon = Instantiate(cannon);
         int x_pos;
         int y_pos;
 
