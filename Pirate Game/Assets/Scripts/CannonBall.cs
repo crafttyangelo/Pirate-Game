@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class CannonBall : MonoBehaviour
 {
 
     Rigidbody2D rb;
@@ -19,6 +19,8 @@ public class Cannon : MonoBehaviour
 
         // Add a force to the bullet
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
+
+        // Destroy cannon
     }
 
     // Update is called once per frame
