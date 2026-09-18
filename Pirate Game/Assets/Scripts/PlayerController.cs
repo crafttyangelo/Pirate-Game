@@ -5,7 +5,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 direction = Vector2.zero;
     private Rigidbody2D rb;
-    public float speed = 5;
+    public float acceleration = 10f;
+    public float decceleration = 5f;
+    public float maxSpeed = 20f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,8 +56,25 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        // Move Player
-        rb.MovePosition(rb.position + (direction * speed * Time.fixedDeltaTime));
+    {   // If player is moving
+        if (direction != Vector2.zero)
+        {
+            // Move player (Sluggish Movement)
+            rb.AddForce(rb.position + (direction * acceleration), ForceMode2D.Force);
+
+            if (rb.linearVelocity.magnitude > maxSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            }        
+            // If no input, then apply decceleration
+            else
+            {
+                rb.AddForce(rb.linearVelocity * -decceleration, ForceMode2D.Force);
+            }
+        }
+
+            /* Original Move Player
+            rb.MovePosition(rb.position + (direction * speed * Time.fixedDeltaTime));
+            */
     }
 }

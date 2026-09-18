@@ -21,6 +21,7 @@ public class CannonBall : MonoBehaviour
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
 
         // Destroy cannon
+        Destroy(this.gameObject, 10);
     }
 
     // Update is called once per frame
