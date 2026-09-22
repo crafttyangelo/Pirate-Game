@@ -5,6 +5,10 @@ public class CannonBallSpawner : MonoBehaviour
 
     public Camera cam;
     public GameObject cannonBall;
+
+    public AudioSource audioSource;
+    public AudioClip cannonFireSound;
+
     private float spawn_timer = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +32,8 @@ public class CannonBallSpawner : MonoBehaviour
     private void SpawnCannon()
     {
         GameObject new_cannon = Instantiate(cannonBall);
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.PlayOneShot(cannonFireSound);
         int x_pos;
         int y_pos;
 
