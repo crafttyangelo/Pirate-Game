@@ -32,7 +32,7 @@ public class CannonBallSpawner : MonoBehaviour
     private void SpawnCannon()
     {
         GameObject new_cannon = Instantiate(cannonBall);
-        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.pitch = Random.Range(1f, 1f);
         audioSource.PlayOneShot(cannonFireSound);
         int x_pos;
         int y_pos;
