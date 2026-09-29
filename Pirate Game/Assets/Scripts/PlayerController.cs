@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 10f;
     public float decceleration = 5f;
     public float maxSpeed = 20f;
-    public float rotationspeed = 5;
+    public float rotationSpeed = 3f;
 
     [Header("Miscellaneous")]
     public int health = 10;
@@ -129,17 +129,18 @@ public class PlayerController : MonoBehaviour
             // Calculate angle of movement in degrees
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+            // Stores the angle of rotation in a variable
             Quaternion final_rotation = Quaternion.Euler(0, 0, angle - 90f); 
-            // Apply rotation according to input (A turns ship to left)
-            //rotates hip smothly between inputs
-            transform.rotation = Quaternion.Slerp(transform.rotation, final_rotation, rotationspeed * Time.fixedDeltaTime);
+            
+            // Rotates ship smoothly between inputs
+            transform.rotation = Quaternion.Slerp(transform.rotation, final_rotation, rotationSpeed * Time.fixedDeltaTime);
 
             if (rb.linearVelocity.magnitude > maxSpeed)
             {
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
         }
-
+        
         // If no input, then apply decceleration
         else
         {
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
         }
         
 
-            /* Original Move Player
+           /* Original Move Player
             rb.MovePosition(rb.position + (direction * speed * Time.fixedDeltaTime));
             */
     }
