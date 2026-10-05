@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d2e2be52415617d40b742fd85451d152
+guid: 6dd73ff7fa3ffc145bc270c91e466170
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: Game sprite
     originalName: 
-    pivot: {x: 0.5, y: 0.23}
+    pivot: {x: 0.5104167, y: -0.8780488}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 27
-      height: 54
-    spriteID: 524ce56482450cd40aa32005c67dc78e
+      width: 96
+      height: 41
+    spriteID: e760db8339aeecf45951a5e7a87caf12
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,120 +148,30 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.23}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 39
-      y: 4
-      width: 27
-      height: 54
-    spriteID: eb3a5b827a9ae804d92ffaa1fc51c2fa
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 39, y: 4}
-  - name: Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.23}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 74
-      y: 4
-      width: 27
-      height: 54
-    spriteID: 4fd8a7c92986ed3419b0d37878e7b54c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 74, y: 4}
-  - name: Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.23}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 66
-      width: 27
-      height: 54
-    spriteID: f2ed2045a1f9a994e850cd7409dd606e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 66}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3066719621
+      value0: 2546439543
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Pirate ship
+    name: Game sprite
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: Game sprite
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 19
-        y: 6
-        width: 27
-        height: 54
-      spriteId: 524ce56482450cd40aa32005c67dc78e
-    - name: Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 19
-        y: 6
-        width: 27
-        height: 54
-      spriteId: eb3a5b827a9ae804d92ffaa1fc51c2fa
-    - name: Frame_2
-      frameIndex: 2
-      additiveSortOrder: 0
-      cellRect:
-        x: 19
-        y: 6
-        width: 27
-        height: 54
-      spriteId: 4fd8a7c92986ed3419b0d37878e7b54c
-    - name: Frame_3
-      frameIndex: 3
-      additiveSortOrder: 0
-      cellRect:
-        x: 19
-        y: 6
-        width: 27
-        height: 54
-      spriteId: f2ed2045a1f9a994e850cd7409dd606e
+        x: 15
+        y: 36
+        width: 96
+        height: 41
+      spriteId: e760db8339aeecf45951a5e7a87caf12
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -271,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 128, y: 128}
+  canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 128, y: 64}
