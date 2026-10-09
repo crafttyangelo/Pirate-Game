@@ -5,12 +5,12 @@ public class Spawner : MonoBehaviour
 {
     Rigidbody2D rb;
     public Vector2 direction;
-    public GameObject GameObject;
+    public GameObject object_to_spawn;
     public float spawnTimer;
     public AudioSource audioSource;
     public AudioClip objectSound;
-    public float speed = 3;
-    public int damage = 1;
+    //public float speed = 3;
+    //public int damage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,24 +25,15 @@ public class Spawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if(spawnTimer <= 0)
         {
-            spawnTimer = Random.Range(1f,5f);
+            spawnTimer = 1f;
             Spawn();
         }
     }
     private void Spawn()
     {
-        GameObject = Instantiate(GameObject);
+        GameObject new_object = Instantiate(object_to_spawn, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(objectSound);
-        rb = GetComponent<Rigidbody2D>();
-
-        // Set Direction
-        //direction = Vector2.down;
-
-        // Add a force to the bullet
-        rb.AddForce(direction * speed, ForceMode2D.Impulse);
-
-        // Destroy cannon
-        Destroy(this.GameObject, 10);
+        
     }
 
 }

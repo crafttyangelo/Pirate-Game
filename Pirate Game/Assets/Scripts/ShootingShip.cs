@@ -20,7 +20,7 @@ public class shootingShip : MonoBehaviour
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
 
         // Destroy cannon
-        Destroy(this.gameObject, 10);
+        Destroy(this.gameObject, 12);
     }
 
     // Update is called once per frame
