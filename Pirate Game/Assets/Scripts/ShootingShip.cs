@@ -22,6 +22,16 @@ public class shootingShip : MonoBehaviour
         // Destroy cannon
         Destroy(this.gameObject, 12);
     }
+    
+//makes it so it destroyed on hit
+    void OnCollisionEnter2D(Collision2D other)
+{
+    if (other.gameObject.layer == LayerMask.NameToLayer("Player Cannon Ball"))
+    {
+        Destroy(other.gameObject);
+        Destroy(gameObject);         
+    }
+}
 
     // Update is called once per frame
     void Update()

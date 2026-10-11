@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 3f;
 
     [Header("Miscellaneous")]
-    public int health = 10;
+    public int health = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
