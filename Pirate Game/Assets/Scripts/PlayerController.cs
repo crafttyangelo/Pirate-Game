@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Miscellaneous")]
     public int health = 5;
+    [SerializeField] private HealthBarDisplay healthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        healthBar.SetHealth(health);
 
         // Grab audio component 
         shipAudio = GetComponent<PlayerAudio>();
@@ -71,6 +74,8 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void OnCollisionEnter2D(Collision2D ball)
     {
+        if (hasLost)
+            return;
         // Check if ship collides with cannon balls
         if (ball.gameObject.layer == LayerMask.NameToLayer("Cannon Balls"))
         
@@ -80,13 +85,22 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ColorNormal());
 
             // Get CannonBall script attached to the cannonball that collided with player
-            CannonBall script = ball.gameObject.GetComponent<CannonBall>();
+            int damage = 0;
 
-            // Checks to see if CannonBall script exists
-            if (script != null)
+            CannonBall cannonBall = ball.gameObject.GetComponent<CannonBall>();
+            FireBall fireBall = ball.gameObject.GetComponent<FireBall>();
+
+            if (cannonBall != null)
             {
-                health -= script.damage; // Access damage variable from CannonBall script        
+                damage = cannonBall.damage;
             }
+            else if (fireBall != null)
+            {
+                damage = fireBall.damage;
+            }
+
+            health = Mathf.Max(0, health - damage);
+            healthBar.SetHealth(health);
 
             // Checks to see if PlayerAudio script exists
             if (shipAudio != null)
@@ -103,10 +117,28 @@ public class PlayerController : MonoBehaviour
             Destroy(ball.gameObject);      
         }
     }
+    private bool hasLost;
 
     private void Lose()
     {
-        shipAudio.loseSound();
+        if (hasLost)
+            return;
+
+        hasLost = true;
+
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
+        SceneManager.LoadScene("Lose screen");
+    }
+
+    private IEnumerator LoadLoseScene()
+    {
+        yield return new WaitForSecondsRealtime(shipAudio.loserAudio.length);
+
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        SceneManager.LoadScene("Lose screen");
     }
 
     IEnumerator ColorNormal()
