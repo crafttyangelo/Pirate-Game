@@ -404,9 +404,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 400734342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58a71a8ac8502647923681d3148bc73, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e080a06817310f439070c699d93f9ab, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExitButton
+  m_EditorClassIdentifier: Assembly-CSharp::ExitPauseScreen
 --- !u!1 &464699194
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 464699197}
   - component: {fileID: 464699198}
   m_Layer: 0
-  m_Name: Start
+  m_Name: Retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

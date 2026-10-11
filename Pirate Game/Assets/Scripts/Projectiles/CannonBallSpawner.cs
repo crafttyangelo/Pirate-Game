@@ -8,8 +8,8 @@ public class CannonBallSpawner : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip cannonFireSound;
-
     private float spawn_timer = 1f;
+    private int score = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
