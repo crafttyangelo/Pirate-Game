@@ -10,6 +10,7 @@ public class ShipRiseIntro : MonoBehaviour
     //the playable ship
     public GameObject playableShip;
     public GameObject cannonSpawner;
+    public GameObject homingShipSpawner;
     void Update()
     {
         if (transform.position.y < targetY)
@@ -20,6 +21,7 @@ public class ShipRiseIntro : MonoBehaviour
         {
             playableShip.SetActive(true);
             cannonSpawner.SetActive(true);
+            homingShipSpawner.SetActive(true);
             gameObject.SetActive(false);
         }
     }
