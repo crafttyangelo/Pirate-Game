@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 135174850}
   - component: {fileID: 135174849}
+  - component: {fileID: 135174851}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -210,6 +211,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &135174851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135174848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d720830f97d134eb661068cb478440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBarDisplay
+  healthSprites:
+  - {fileID: -1021029894469166405, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
+  - {fileID: 97191948842311025, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
+  - {fileID: -5931167405571579147, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
+  - {fileID: 447395534629009304, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
+  - {fileID: 6323246455988348455, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
+  - {fileID: 4974218027401955496, guid: 5ec1ada6f812e0e428daf15469601ebb, type: 3}
 --- !u!1 &167494232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,7 +6173,8 @@ MonoBehaviour:
   decceleration: 5
   maxSpeed: 3
   rotationSpeed: 3
-  health: 10
+  health: 5
+  healthBar: {fileID: 135174851}
 --- !u!50 &749126341
 Rigidbody2D:
   serializedVersion: 5
