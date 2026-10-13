@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
 
             CannonBall cannonBall = ball.gameObject.GetComponent<CannonBall>();
             FireBall fireBall = ball.gameObject.GetComponent<FireBall>();
+            shootingShip shipBall = ball.gameObject.GetComponent<shootingShip>();
+            HomingShip homingBall = ball.gameObject.GetComponent<HomingShip>();
 
             if (cannonBall != null)
             {
@@ -97,6 +99,14 @@ public class PlayerController : MonoBehaviour
             else if (fireBall != null)
             {
                 damage = fireBall.damage;
+            }
+            else if (shipBall != null)
+            {
+                damage = shipBall.damage;
+            }
+            else if (homingBall != null)
+            {
+                damage = homingBall.damage;
             }
 
             health = Mathf.Max(0, health - damage);
