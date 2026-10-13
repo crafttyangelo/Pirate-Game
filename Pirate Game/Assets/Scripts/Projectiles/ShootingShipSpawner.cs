@@ -3,11 +3,11 @@ using UnityEngine;
 public class ShootingShipSpawner : MonoBehaviour
 {
 
-    public Camera cam;
+    //public Camera cam;
     public GameObject shootingShip;
 
-    public AudioSource audioSource;
-    public AudioClip maybeSoundHere;
+    //public AudioSource audioSource;
+    //public AudioClip maybeSoundHere;
     private float spawn_timer = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,8 +31,8 @@ public class ShootingShipSpawner : MonoBehaviour
     private void SpawnSS()
     {
         GameObject new_cannon = Instantiate(shootingShip);
-        audioSource.pitch = Random.Range(1f, 1f);
-        audioSource.PlayOneShot(maybeSoundHere);
+        //audioSource.pitch = Random.Range(1f, 1f);
+        //audioSource.PlayOneShot(maybeSoundHere);
         new_cannon.transform.position = new Vector2(13.5f, 4.2f); 
     }
 }
