@@ -6,10 +6,13 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip shipDamageAudio; // Ship getting hit splice
     public AudioClip beginAudio; // All aboard splice
     public AudioClip loserAudio; // Lose splice
+    public AudioClip oceanBackground; // Ocean ambience sound
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        OceanSound();
     }
 
     // Update is called once per frame
@@ -18,6 +21,12 @@ public class PlayerAudio : MonoBehaviour
         
     }
 
+    public void OceanSound()
+    {
+        audioSource.clip = oceanBackground;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
     public void ShipDamage()
     {
         audioSource.PlayOneShot(shipDamageAudio);
