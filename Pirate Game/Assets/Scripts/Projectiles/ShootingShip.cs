@@ -7,6 +7,7 @@ public class shootingShip : MonoBehaviour
     Vector2 direction;
     public float speed = 3;
     public int damage = 1;
+    public AudioClip shipDestroyedSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +29,11 @@ public class shootingShip : MonoBehaviour
 {
     if (other.gameObject.layer == LayerMask.NameToLayer("Player Cannon Ball"))
     {
+        if (shipDestroyedSound != null)
+        {
+            AudioSource.PlayClipAtPoint(shipDestroyedSound, transform.position);
+        }
+
         Destroy(other.gameObject);
         Destroy(gameObject);         
     }

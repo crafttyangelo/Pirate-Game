@@ -77,7 +77,9 @@ public class PlayerController : MonoBehaviour
         if (hasLost)
             return;
         // Check if ship collides with cannon balls
-        if (ball.gameObject.layer == LayerMask.NameToLayer("Cannon Balls"))
+        int layer = ball.gameObject.layer;
+        if (layer == LayerMask.NameToLayer("Cannon Balls") ||
+        layer ==  LayerMask.NameToLayer("Enemy Ships"))
         
         {
             //Turn ship red
