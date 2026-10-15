@@ -43,11 +43,11 @@ public class HomingShipSpawner : MonoBehaviour
         {
             if (Random.value < 0.5f) // Spawn left
             {
-                x_pos = 0;
+                x_pos = -100;
             }
             else // Spawn right
             {
-                x_pos = cam.scaledPixelWidth;
+                x_pos = cam.scaledPixelWidth +100;
 
             }
             // Random y value to spawn     
@@ -58,11 +58,11 @@ public class HomingShipSpawner : MonoBehaviour
         {
             if (Random.value < 0.5f) // Spawn bottom
             {
-                y_pos = 0;
+                y_pos = -100;
             }
             else
             {
-                y_pos = cam.scaledPixelHeight;
+                y_pos = cam.scaledPixelHeight +100;
             }
             x_pos = Random.Range(0,cam.scaledPixelWidth);
         }

@@ -7,6 +7,7 @@ public class HomingShip : MonoBehaviour
     Rigidbody2D rb;
     public float speed = 2f;
     public int damage = 1;
+    public AudioClip shipDestroyedSound;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,14 +20,19 @@ public class HomingShip : MonoBehaviour
             
         }
 
-        Destroy(this.gameObject, 10);
+        //Destroy(this.gameObject, 30);
     }
 //makes it so it destroyed on hit
         private void OnCollisionEnter2D(Collision2D ball)
 {
+
     if (ball.gameObject.layer == LayerMask.NameToLayer("Player Cannon Ball"))
     {
-        Debug.Log ("yo");
+        if (shipDestroyedSound != null)
+        {
+            AudioSource.PlayClipAtPoint(shipDestroyedSound, transform.position);
+        }
+
         Destroy(ball.gameObject);
         Destroy(gameObject);         
     }
@@ -36,7 +42,12 @@ public class HomingShip : MonoBehaviour
     void Update()
     {
         if (target == null) return;
-
+        //gets the diretion towards the player so the ship can face it
+        Vector2 direction = (target.position - transform.position).normalized;
+        //Move the ship towardws the player
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed = Time.deltaTime);
+        //roates the ship so it faces in the direction it is traveling towards
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 }
